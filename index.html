@@ -22,7 +22,7 @@
     <script src="https://js.arcgis.com/4.26/"></script>
 
     <script>
-        require([ "esri/config", "esri/Map", "esri/views/MapView" ], (esriConfig, Map, MapView) => {
+        require([ "esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate" ], (esriConfig, Map, MapView, Locate) => {
          
             esriConfig.apiKey = "YAAPK7d13587c1f82408cbc5a040c7059d8fee7IBoeXwdO2zPSzZvEywKiEr-G85VeIgjX2FmIlp-IoFVmo7QLBxqKibLvYv8ppp";
             
@@ -35,6 +35,15 @@
                 map: map, // References the map object
                 center: [-81.5158,27.6648], // Sets center point
                 zoom: 6 // Sets zoom level
+            });
+
+            const locateBtn = new Locate({
+                view: view
+            });
+
+            // Add the locate widget to the top left corner of the view
+            view.ui.add(locateBtn, {
+                position: "top-left"
             });
 
         });
