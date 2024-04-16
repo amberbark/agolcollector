@@ -22,7 +22,7 @@
     <script src="https://js.arcgis.com/4.26/"></script>
 
     <script>
-        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search"], (esriConfig, Map, MapView, Locate, Search) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer"], (esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
          
             esriConfig.apiKey = "AAPK7d13587c1f82408cbc5a040c7059d8fee7IBoeXwdO2zPSzZvEywKiEr-G85VeIgjX2FmIlp-IoFVmo7QLBxqKibLvYv8ppp";
             
@@ -41,6 +41,15 @@
                 view: view
             });
 
+            // Create featurelayer from feature service 
+            const layer = new FeatureLayer({ 
+            // URL to the service 
+            url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_ab6690d0b0ab46998c4698a0e3e240d2_results/FeatureServer" //Your item URL Goes Here
+            });
+
+            // Add the layer to the map
+            map.add(layer);
+            
             // Add the locate widget to the top left corner of the view
             view.ui.add(locateBtn, {
                 position: "top-left"
