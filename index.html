@@ -47,20 +47,7 @@
             });
 
             const searchWidget = new Search({
-            view: view,
-            sources: [{
-            locator: new Locator({ url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer" }),
-            singleLineFieldName: "SingleLine",
-            name: "World Geocoding Service",
-            localSearchOptions: {
-                minScale: 300000,
-                distance: 50000
-            },
-            placeholder: "Search Geocoder",
-            maxResults: 3,
-            maxSuggestions: 6,
-            suggestionsEnabled: true,
-            minSuggestCharacters: 0
+                view: view
             });
 
             view.ui.add(searchWidget, {
